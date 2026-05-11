@@ -1,0 +1,31 @@
+{
+  "name": "telegram-bidir-support-bot",
+  "version": "0.1.0",
+  "description": "Telegram bidirectional support bot for Cloudflare Workers/Pages or Node.js servers.",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev src/worker.ts --local",
+    "dev:pages": "wrangler pages dev . --compatibility-date=2026-05-04 --d1 DB --kv KV",
+    "deploy": "wrangler deploy",
+    "deploy:pages": "wrangler pages deploy .",
+    "typecheck": "tsc --noEmit",
+    "db:migrate:local": "wrangler d1 migrations apply telegram_support_bot --local",
+    "db:migrate:remote": "wrangler d1 migrations apply telegram_support_bot --remote",
+    "dev:server": "tsx src/server.ts",
+    "start:server": "node --import tsx src/server.ts"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260504.0",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^25.6.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "wrangler": "^4.50.0"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.9.0",
+    "dotenv": "^17.4.2",
+    "undici": "^7.16.0"
+  },
+  "license": "MIT"
+}

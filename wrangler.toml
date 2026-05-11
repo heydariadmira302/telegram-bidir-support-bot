@@ -1,0 +1,26 @@
+name = "telegram-bidir-support-bot"
+main = "src/worker.ts"
+compatibility_date = "2026-05-04"
+
+# Secrets, set with:
+#   wrangler secret put BOT_TOKEN
+#   wrangler secret put WEBHOOK_SECRET
+#   wrangler secret put ENCRYPTION_SECRET
+#   wrangler secret put ADMIN_PASSWORD
+# Optional plain vars can also be placed here.
+[vars]
+PUBLIC_URL = "https://support.example.com"
+# SUPPORT_CHAT_ID = "-1001234567890" # optional for legacy/default Bot; new Bots can bind with /setup or /bind.
+# OWNER_IDS = "123456789,987654321"
+# BOT_USERNAME = "your_bot_username"
+# DEFAULT_LANG = "zh-CN"
+# SUPPORT_CARD_FALLBACK = "true" # set to "false" to stop auto-sending cards when copied messages cannot be edited.
+
+[[d1_databases]]
+binding = "DB"
+database_name = "telegram_support_bot"
+database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+
+[[kv_namespaces]]
+binding = "KV"
+id = "REPLACE_WITH_YOUR_KV_NAMESPACE_ID"
